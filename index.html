@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My App UTS Nayla Ulfiatri Marsya</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: #2563eb;
+        color: white;
+        padding: 20px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      header h2 {
+        font-size: 24px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 25px;
+        font-weight: bold;
+      }
+      nav a:hover {
+        color: #dbeafe;
+      }
+
+      /*main*/
+      main {
+        min-height: 75vh;
+        padding: 60px 20px;
+        text-align: center;
+      }
+      main h1 {
+        color: #1e40af;
+        margin-bottom: 15px;
+      }
+      main p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1e293b;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* kalkulator */
+      .calculator {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+
+      .calculator h1 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 25px;
+      }
+
+      .calculator label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+      .calculator input,
+      .calculator select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .calculator button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .calculator button:hover {
+        background-color: #1d4ed8;
+      }
+
+      #hasil {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #2563eb
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- Header -->
+     <header>
+      <h1>My App UTS Nayla Ulfiatri Marsya</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">about</a>
+        <a href="contact.html">contact</a>
+      </nav>
+     </header>
+     
+     <!-- Main-->
+      <main>
+        <div class="calculator">
+          <h1>Operasi Matematika dengan JavaScript</h1>
+          <label for="angka1">Angka Pertama:</label>
+          <input type="angka" id="angka1" placeholder="Masukkan angka pertama" />
+
+          <label for="angka2">Angka Kedua:</label>
+          <input type="angka" id="angka2" placeholder="Masukkan angka kedua" />
+
+          <label for="operasi">Pilih Operasi:</label>
+          <select id="operasi">
+            <option value="tambah">penjumlahan</option>
+            <option value="kurang">pengurangan</option>
+            <option value="kali">perkalian</option>
+            <option value="bagi">pembagian</option>
+          </select>
+
+          <button onclick="hitung()">Hitung</button>
+          <p id="hasil"></p>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2024 MY App UTS. All rights reserved.</p>
+      </footer>
+
+      <script>
+        function hitung() {
+          const angka1 = parseFloat(document.getElementById("angka1").value);
+          const angka2 = parseFloat(document.getElementById("angka2").value);
+          const operasi = document.getElementById("operasi").value;
+
+          let hasil;
+          
+          if (isNaN(angka1) || isNaN(angka2)) {
+            document.getElementById("hasil").innerText = "Harap masukkan angka yang valid.";
+            return;
+          }
+          if (operasi === 'tambah') {
+            hasil = angka1 + angka2;
+
+           } else if (operasi === 'kurang') {
+            hasil = angka1 - angka2;
+
+          } else if (operasi === 'kali') {
+            hasil = angka1 * angka2;
+
+          } else if (operasi === 'bagi') {
+            if (angka2 === 0) {
+              document.getElementById("hasil").innerText = "Tidak dapat membagi dengan nol.";
+              return;
+            }
+            hasil = angka1 / angka2;
+          }
+          document.getElementById("hasil").innerText = `Hasil: ${hasil}`;
+        }
+
+      </script
+  </body>
+</html>
