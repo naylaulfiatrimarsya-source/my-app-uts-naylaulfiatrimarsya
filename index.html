@@ -158,8 +158,11 @@
 
       <script>
         function hitung() {
-          const angka1 = parseFloat(document.getElementById("angka1").value);
-          const angka2 = parseFloat(document.getElementById("angka2").value);
+          const input1 = document.getElementById("angka1").value.replace(",", ".");
+          const input2 = document.getElementById("angka2").value.replace(",", ".");
+
+          const angka1 = parseFloat(input1);
+          const angka2 = parseFloat(input2);
           const operasi = document.getElementById("operasi").value;
 
           let hasil;
